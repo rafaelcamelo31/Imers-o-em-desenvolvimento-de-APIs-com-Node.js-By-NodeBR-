@@ -1,0 +1,20 @@
+{
+  "name": "Imers-o-em-desenvolvimento-de-APIs-com-Node.js-By-NodeBR-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelcamelo31/Imers-o-em-desenvolvimento-de-APIs-com-Node.js-By-NodeBR-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelcamelo31/Imers-o-em-desenvolvimento-de-APIs-com-Node.js-By-NodeBR-/issues"
+  },
+  "homepage": "https://github.com/rafaelcamelo31/Imers-o-em-desenvolvimento-de-APIs-com-Node.js-By-NodeBR-#readme"
+}
