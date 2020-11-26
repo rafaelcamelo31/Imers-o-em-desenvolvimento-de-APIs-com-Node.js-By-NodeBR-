@@ -39,43 +39,73 @@ function getAddress(id, callback) {
     }, 2000)
 }
 
-const userPromise = getUser()
+// Primeiro passo: Adicionar a palavra async -> automaticate ela retornará uma Promise
+main()
+async function main() {
+    try {
+        console.time('medida-promise')
+        const user = await getUser()
+        // const phone = await getPhoneNumber(user.id)
+        // const address = await getAddressAsync(user.id)
+        const result = await Promise.all([
+            getPhoneNumber(user.id),
+            getAddressAsync(user.id)
+        ])
+        const address = result[1]
+        const phone = result[0]
 
-// user -> phone -> phone
-userPromise
-    .then(function (user) {
-        return getPhoneNumber(user.id)
-            .then(function resolvePhoneNumber(response) {
-                return {
-                    user: {
-                        name: user.name,
-                        id: user.id
-                    },
-                    telefone: response
-                }
-            })
-    })
-    .then(function (response) {
-        const address = getAddressAsync(response.user.id)
-        return address
-            .then(function resolveAddress(result) {
-                return {
-                    user: response.user,
-                    phone: response.telefone,
-                    address: result
-                }
-            })
-    })
-    .then(function (response) {
         console.log(`
-        Nome: ${response.user.name},
-        Endereco: ${response.address.street}, ${response.address.number}
-        Telefone: (${response.phone.ddd}) ${response.phone.number}
+        Nome: ${user.name},
+        Endereco: ${address.street}, ${address.number}
+        Telefone: (${phone.ddd}) ${phone.number}
         `)
-    })
-    .catch(function (error) {
-        console.error('Deu ruim', error)
-    })
+        console.timeEnd('medida-promise')
+    }
+    catch (error) {
+        console.log('Deu ruim', error)
+    }
+}
+
+// const userPromise = getUser()
+
+// // user -> phone -> phone
+// userPromise
+//     .then(function (user) {
+//         return getPhoneNumber(user.id)
+//             .then(function resolvePhoneNumber(response) {
+//                 return {
+//                     user: {
+//                         name: user.name,
+//                         id: user.id
+//                     },
+//                     telefone: response
+//                 }
+//             })
+//     })
+//     .then(function (response) {
+//         const address = getAddressAsync(response.user.id)
+//         return address
+//             .then(function resolveAddress(result) {
+//                 return {
+//                     user: response.user,
+//                     phone: response.telefone,
+//                     address: result
+//                 }
+//             })
+//     })
+//     .then(function (response) {
+//         console.log(`
+//         Nome: ${response.user.name},
+//         Endereco: ${response.address.street}, ${response.address.number}
+//         Telefone: (${response.phone.ddd}) ${response.phone.number}
+//         `)
+//         // console.table({
+//         //     response
+//         // })
+//     })
+//     .catch(function (error) {
+//         console.error('Deu ruim', error)
+//     })
 
 
 
