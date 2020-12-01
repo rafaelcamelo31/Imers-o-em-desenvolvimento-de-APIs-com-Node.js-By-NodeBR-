@@ -4,6 +4,7 @@ async function main() {
     try {
         const result = await service.obterPessoas('a')
         const names = []
+        // for loop
         console.time('tempo com for')
         for (let i = 0; i <= result.results.length - 1; i++) {
             const pessoa = result.results[i]
@@ -11,6 +12,7 @@ async function main() {
         }
         console.timeEnd('tempo com for')
 
+        // for in loop
         console.time('tempo com for-in')
         for (let i in result.results) {
             const pessoa = result.results[i]
@@ -18,6 +20,7 @@ async function main() {
         }
         console.timeEnd('tempo com for-in')
 
+        //for of loop
         console.time('tempo com for-of')
         for (pessoa of result.results) {
             names.push(pessoa.name)
