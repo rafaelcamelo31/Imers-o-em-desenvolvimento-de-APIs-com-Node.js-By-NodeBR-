@@ -13,7 +13,9 @@ async function main() {
         const results = await service.obterPessoas('a')
         // const names = results.results.map(response => response.name)
         const names = results.results.customMap((pessoa, indice) => { return `[${indice + 1}]${pessoa.name}` })
+        const length = results.results.length
         console.log('names', names)
+        console.log('length', length)
     }
     catch (error) {
         console.error('Deu ruim', error)
