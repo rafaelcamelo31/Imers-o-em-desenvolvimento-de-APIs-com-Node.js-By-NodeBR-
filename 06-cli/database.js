@@ -22,6 +22,7 @@ class Database {
         const dados = await this.obterDadosArquivo()
         const dadosFiltrados = dados.filter(item => (id ? (item.id === id) : true))
         return dadosFiltrados
+
     }
 }
 
