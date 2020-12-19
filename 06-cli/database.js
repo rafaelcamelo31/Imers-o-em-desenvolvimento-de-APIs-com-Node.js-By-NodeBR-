@@ -73,8 +73,6 @@ class Database {
             ...dados,
             objetoAtualizar
         ])
-
-        return false
     }
 }
 

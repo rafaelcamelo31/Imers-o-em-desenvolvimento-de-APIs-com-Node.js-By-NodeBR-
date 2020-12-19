@@ -42,7 +42,7 @@ describe('Suite de manipulação de Herois', () => {
         deepStrictEqual(resultado, expected)
     })
 
-    it('deve arualizar um heroi pelo id', async () => {
+    it('deve atualizar um heroi pelo id', async () => {
         const expected = {
             ...DEFAULT_ITEM_ATUALIZAR,
             nome: 'Batman',
