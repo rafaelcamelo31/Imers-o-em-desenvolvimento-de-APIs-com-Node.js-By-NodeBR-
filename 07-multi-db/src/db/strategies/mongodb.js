@@ -1,4 +1,4 @@
-const ICrud = require('./../interfaces/interfaceCrud')
+const ICrud = require('./../strategies/interfaces/interfaceCrud')
 
 class MongoDB extends ICrud {
     constructor() {
@@ -10,4 +10,4 @@ class MongoDB extends ICrud {
     }
 }
 
-module.export = MongoDB
+module.exports = MongoDB

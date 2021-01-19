@@ -1,4 +1,4 @@
-const ICrud = require('./../interfaces/interfaceCrud')
+const ICrud = require('./../strategies/interfaces/interfaceCrud')
 
 class Postgres extends ICrud {
     constructor() {
@@ -10,4 +10,4 @@ class Postgres extends ICrud {
     }
 }
 
-module.export = Postgres
+module.exports = Postgres

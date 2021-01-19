@@ -23,4 +23,4 @@ class ICrud {
     }
 }
 
-module.export = ICrud
+module.exports = ICrud
