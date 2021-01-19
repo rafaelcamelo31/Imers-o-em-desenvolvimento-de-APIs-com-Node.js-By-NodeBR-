@@ -64,9 +64,3 @@ class ContextStrategy {
         return this._database.delete(id)
     }
 }
-
-const contextMongo = new ContextStrategy(new MongoDB())
-contextMongo.create()
-
-const contextPostgres = new ContextStrategy(new Postgres())
-contextPostgres.create()
